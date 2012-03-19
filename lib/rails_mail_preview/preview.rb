@@ -13,7 +13,7 @@ module RailsMailPreview
             m = orig_mail(headers, &block)
             if m.class.to_s == "Mail::Message"
               notification = ::FBDistributedNotification.new
-              notification.postNotificationName("RailsMailPreview.email", object => m.encoded.to_lf)
+              notification.postNotificationName("RailsMailPreview.email", :object => m.encoded.to_lf)
             end
             m
           end
